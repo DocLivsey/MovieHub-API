@@ -1,6 +1,5 @@
 package dclvs.moviehubapi.controllers;
 
-import dclvs.moviehubapi.clients.KinopoiskDevAPIClient;
 import dclvs.moviehubapi.clients.KinopoiskUnofficialAPIClient;
 import dclvs.moviehubapi.dto.MovieResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -8,22 +7,20 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.env.Environment;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "Controller for work with movies", description = "API для обращения к KinopoiskAPI")
+@Tag(name = "Controller for work with movies via Unofficial API", description = "API для обращения к Unofficial KinopoiskAPI")
 @RequestMapping(
         value = "/films",
         method = RequestMethod.GET,
         headers = "Accept=application/json" +
                 "X-API-KEY=067d908b-c222-42ac-990a-10b3347f50b0"
 )
-public class MovieController {
+public class MovieUnofficialAPIController {
 
     private final KinopoiskUnofficialAPIClient kinopoiskUnofficialAPIClientImpl;
 
