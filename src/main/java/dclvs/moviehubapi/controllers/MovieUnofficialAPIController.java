@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.*;
 )
 @RequestMapping(
         value = "/films",
-        headers = "Accept=application/json" +
-                "X-API-KEY=067d908b-c222-42ac-990a-10b3347f50b0"
+        headers = "X-API-KEY=067d908b-c222-42ac-990a-10b3347f50b0"
 )
 public class MovieUnofficialAPIController {
 
