@@ -5,7 +5,6 @@ import dclvs.moviehubapi.dto.MovieResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ public class MovieDevAPIController {
 
     @GetMapping("/{id}")
     public ResponseEntity<MovieResponse> getMovieById(@PathVariable("id") Long id) {
-        MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovie(id);
+        MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
         log.info("Movie response: {}", movieResponse);
         return ResponseEntity.ok(movieResponse);
     }
