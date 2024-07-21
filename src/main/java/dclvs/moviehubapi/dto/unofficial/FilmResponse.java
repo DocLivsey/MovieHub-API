@@ -1,9 +1,9 @@
-package dclvs.moviehubapi.dto;
+package dclvs.moviehubapi.dto.unofficial;
 
 import lombok.Data;
 
 @Data
-public class MovieResponse {
+public class FilmResponse {
 
     private Integer kinopoiskId;
 
