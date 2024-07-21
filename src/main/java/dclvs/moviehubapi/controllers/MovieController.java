@@ -1,6 +1,6 @@
 package dclvs.moviehubapi.controllers;
 
-import dclvs.moviehubapi.dto.MovieDto;
+import dclvs.moviehubapi.dto.MovieResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
 
     @GetMapping("/movies/{id}")
-    public ResponseEntity<MovieDto> getMovieById(@PathVariable int id) {
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable int id) {
         return null;
     }
 
