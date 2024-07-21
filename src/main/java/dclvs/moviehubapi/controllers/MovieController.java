@@ -1,27 +1,40 @@
 package dclvs.moviehubapi.controllers;
 
 import dclvs.moviehubapi.clients.KinopoiskDevAPIClient;
+import dclvs.moviehubapi.clients.KinopoiskUnofficialAPIClient;
 import dclvs.moviehubapi.dto.MovieResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "Controller for work with movies", description = "API для обращения к KinopoiskAPI")
+@RequestMapping(
+        value = "/films",
+        method = RequestMethod.GET,
+        headers = "Accept=application/json" +
+                "X-API-KEY=067d908b-c222-42ac-990a-10b3347f50b0"
+)
 public class MovieController {
 
-    private final KinopoiskDevAPIClient kinopoiskDevAPIClientImpl;
+    private final KinopoiskUnofficialAPIClient kinopoiskUnofficialAPIClientImpl;
 
-    @GetMapping("/movies/{id}")
-    public ResponseEntity<MovieResponse> getMovieById(@PathVariable Long id) {
-        MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovie(id);
+    @GetMapping("/{id}")
+    @Operation(summary = "Getting movie by id")
+    @ApiResponse(responseCode = "401", description = "Пустой или неправильный токен")
+    @ApiResponse(responseCode = "402", description = "Превышен лимит запросов(или дневной, или общий)")
+    @ApiResponse(responseCode = "404", description = "Фильм не найден")
+    @ApiResponse(responseCode = "429", description = "Слишком много запросов. Общий лимит - 20 запросов в секунду")
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable Integer id) {
+        MovieResponse movieResponse = kinopoiskUnofficialAPIClientImpl.getMovieById(id);
         log.info("Movie response: {}", movieResponse);
         return ResponseEntity.ok(movieResponse);
     }

@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface KinopoiskUnofficialAPIClient {
 
     @GetMapping("${kinopoisk.unofficial.api.path}/{id}")
-    MovieResponse getMovieById(@PathVariable("id") Long id);
+    MovieResponse getMovieById(@PathVariable("id") Integer id);
 
 }
