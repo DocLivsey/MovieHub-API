@@ -1,10 +1,9 @@
 package dclvs.moviehubapi.dto;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 
 @Data
-public class MovieDto {
+public class MovieResponse {
 
     private Integer kinopoiskId;
 
