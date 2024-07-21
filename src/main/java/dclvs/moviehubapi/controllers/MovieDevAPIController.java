@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.*;
         description = "API для обращения к Dev KinopoiskAPI"
 )
 @RequestMapping(
-        value = "/movies",
-        headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
+        value = "/movies"
+        //headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
 )
 public class MovieDevAPIController {
 
     private final KinopoiskDevAPIClient kinopoiskDevAPIClientImpl;
 
     @GetMapping("/{id}")
-    public ResponseEntity<MovieResponse> getMovieById(@PathVariable("id") Long id) {
+    public MovieResponse getMovieById(@PathVariable("id") Long id) {
         MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
         log.info("Movie response: {}", movieResponse);
-        return ResponseEntity.ok(movieResponse);
+        return movieResponse;
     }
 
 }
