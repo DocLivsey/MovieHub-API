@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/movies")
 @Tag(
         name = "Controller for work with movies via Dev API",
         description = "API для обращения к Dev KinopoiskAPI"
-)
-@RequestMapping(
-        value = "/movies"
-        //headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
 )
 public class MovieDevAPIController {
 
