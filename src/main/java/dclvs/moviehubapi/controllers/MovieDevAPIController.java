@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -18,19 +17,15 @@ import java.util.Map;
         description = "API для обращения к Dev KinopoiskAPI"
 )
 @RequestMapping(
-        value = "/movies"
-        //headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
+        value = "/movies",
+        headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
 )
 public class MovieDevAPIController {
 
     private final KinopoiskDevAPIClient kinopoiskDevAPIClientImpl;
 
     @GetMapping("/{id}")
-    public ResponseEntity<MovieResponse> getMovieById(
-            @PathVariable("id") Long id,
-            @RequestHeader Map<String, String> headers
-    ) {
-        headers.put("X-API-KEY", "D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS");
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable("id") Long id) {
         MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovie(id);
         log.info("Movie response: {}", movieResponse);
         return ResponseEntity.ok(movieResponse);
