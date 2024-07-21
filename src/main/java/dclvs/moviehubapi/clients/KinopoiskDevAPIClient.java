@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface KinopoiskDevAPIClient {
 
     @GetMapping("${kinopoisk.dev.api.path}/{id}")
-    MovieResponse getMovie(@PathVariable Long id);
+    MovieResponse getMovie(@PathVariable("id") Long id);
 
 }
