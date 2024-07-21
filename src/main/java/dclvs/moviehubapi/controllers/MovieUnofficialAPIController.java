@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "Controller for work with movies via Unofficial API", description = "API для обращения к Unofficial KinopoiskAPI")
+@Tag(
+        name = "Controller for work with movies via Unofficial API",
+        description = "API для обращения к Unofficial KinopoiskAPI"
+)
 @RequestMapping(
         value = "/films",
-        method = RequestMethod.GET,
         headers = "Accept=application/json" +
                 "X-API-KEY=067d908b-c222-42ac-990a-10b3347f50b0"
 )
