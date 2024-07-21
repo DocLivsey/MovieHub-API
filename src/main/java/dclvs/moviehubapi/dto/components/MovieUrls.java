@@ -1,4 +1,4 @@
-package dclvs.moviehubapi;
+package dclvs.moviehubapi.dto.components;
 
 import lombok.Data;
 
