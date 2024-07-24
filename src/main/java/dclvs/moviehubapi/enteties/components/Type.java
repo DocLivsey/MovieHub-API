@@ -1,4 +1,4 @@
-package dclvs.moviehubapi.dto.dev.components;
+package dclvs.moviehubapi.enteties.components;
 
 public enum Type {
 

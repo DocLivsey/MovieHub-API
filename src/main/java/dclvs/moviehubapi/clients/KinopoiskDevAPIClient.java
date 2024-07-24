@@ -1,6 +1,6 @@
 package dclvs.moviehubapi.clients;
 
-import dclvs.moviehubapi.dto.unofficial.FilmResponse;
+import dclvs.moviehubapi.dto.dev.MovieResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +12,6 @@ public interface KinopoiskDevAPIClient {
             value = "${kinopoisk.dev.api.path}/{id}",
             headers = "X-API-KEY=D8ZQPS1-0HJMNG6-HEWPYP6-MFJ42GS"
     )
-    FilmResponse getMovieById(@PathVariable("id") Long id);
+    MovieResponse getMovieById(@PathVariable("id") Long id);
 
 }
