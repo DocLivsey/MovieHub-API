@@ -30,7 +30,7 @@
         <java.version>22</java.version>
 
         <application.name>MovieHubAPI</application.name>
-        <application.version>0.0.1</application.version>
+        <application.version>0.0.2-ALPHA</application.version>
         <application.description>This is the movie hub API</application.description>
     </properties>
     <dependencies>
