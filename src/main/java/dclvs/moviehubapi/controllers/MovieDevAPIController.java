@@ -1,7 +1,7 @@
 package dclvs.moviehubapi.controllers;
 
 import dclvs.moviehubapi.clients.KinopoiskDevAPIClient;
-import dclvs.moviehubapi.dto.unofficial.FilmResponse;
+import dclvs.moviehubapi.dto.dev.MovieResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +20,10 @@ public class MovieDevAPIController {
     private final KinopoiskDevAPIClient kinopoiskDevAPIClientImpl;
 
     @GetMapping("/{id}")
-    public FilmResponse getMovieById(@PathVariable("id") Long id) {
-        FilmResponse filmResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
-        log.info("Movie response: {}", filmResponse);
-        return filmResponse;
+    public MovieResponse getMovieById(@PathVariable("id") Long id) {
+        MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
+        log.info("Movie response: {}", movieResponse);
+        return movieResponse;
     }
 
 }
