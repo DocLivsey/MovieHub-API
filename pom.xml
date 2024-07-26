@@ -28,6 +28,12 @@
     </scm>
     <properties>
         <java.version>22</java.version>
+        <spring.boot.version>3.3.1</spring.boot.version>
+
+        <swaggerui.version>2.4.0</swaggerui.version>
+        <feign.client.version>4.1.1</feign.client.version>
+        <hibernate.core.version>4.1.4.Final</hibernate.core.version>
+        <hibernate.entitymanager.version>5.2.3.Final</hibernate.entitymanager.version>
 
         <application.name>MovieHubAPI</application.name>
         <application.version>0.0.2-ALPHA</application.version>
@@ -98,26 +104,26 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.4.0</version>
+            <version>${swaggerui.version}</version>
         </dependency>
 
         <!-- Feign Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>4.1.1</version>
+            <version>${feign.client.version}</version>
         </dependency>
 
         <!-- Hibernate -->
 <!--        <dependency>-->
 <!--            <groupId>org.hibernate</groupId>-->
 <!--            <artifactId>hibernate-core</artifactId>-->
-<!--            <version>4.1.4.Final</version>-->
+<!--            <version>${hibernate.core.version}</version>-->
 <!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>org.hibernate</groupId>-->
 <!--            <artifactId>hibernate-entitymanager</artifactId>-->
-<!--            <version>5.2.3.Final</version>-->
+<!--            <version>${hibernate.entitymanager.version}</version>-->
 <!--        </dependency>-->
     </dependencies>
 
