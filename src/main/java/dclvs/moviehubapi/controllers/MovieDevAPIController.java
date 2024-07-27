@@ -27,7 +27,7 @@ public class MovieDevAPIController {
     @ApiResponse(responseCode = "401", description = "В запросе не указан токен!")
     @ApiResponse(responseCode = "403", description = "Превышен дневной лимит!")
     @ApiResponse(responseCode = "404", description = "Фильм не найден")
-    public ResponseEntity<?> getMovieById(@PathVariable("id") Long id) {
+    public ResponseEntity<MovieResponse> getMovieById(@PathVariable("id") Long id) {
         MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
         log.info("Movie response: {}", movieResponse);
         if (movieResponse != null) {
