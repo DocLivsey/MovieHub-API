@@ -7,7 +7,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Schema(name = "Container for Movie DTO")
 public class MovieResponse {
 
     @Schema(name = "Id фильма с кинопоиска", example = "666", nullable = true)
