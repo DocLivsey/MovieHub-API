@@ -23,7 +23,7 @@ public class MovieUnofficialAPIController {
     private final KinopoiskUnofficialAPIClient kinopoiskUnofficialAPIClientImpl;
 
     @GetMapping("/{id}")
-    @Operation(summary = "Getting movie by id")
+    @Operation(summary = "Getting film by id")
     @ApiResponse(responseCode = "401", description = "Пустой или неправильный токен")
     @ApiResponse(responseCode = "402", description = "Превышен лимит запросов(или дневной, или общий)")
     @ApiResponse(responseCode = "404", description = "Фильм не найден")
