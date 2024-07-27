@@ -32,7 +32,7 @@
 
         <swaggerui.version>2.4.0</swaggerui.version>
         <feign.client.version>4.1.1</feign.client.version>
-        <hibernate.core.version>4.1.4.Final</hibernate.core.version>
+        <hibernate.core.version>6.5.2.Final</hibernate.core.version>
         <hibernate.entitymanager.version>5.2.3.Final</hibernate.entitymanager.version>
 
         <application.name>MovieHubAPI</application.name>
