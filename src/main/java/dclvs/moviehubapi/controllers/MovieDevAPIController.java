@@ -2,6 +2,8 @@ package dclvs.moviehubapi.controllers;
 
 import dclvs.moviehubapi.clients.KinopoiskDevAPIClient;
 import dclvs.moviehubapi.dto.dev.MovieResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +23,10 @@ public class MovieDevAPIController {
     private final KinopoiskDevAPIClient kinopoiskDevAPIClientImpl;
 
     @GetMapping("/{id}")
+    @Operation(summary = "Getting Movie by id")
+    @ApiResponse(responseCode = "401", description = "В запросе не указан токен!")
+    @ApiResponse(responseCode = "403", description = "Превышен дневной лимит!")
+    @ApiResponse(responseCode = "404", description = "Фильм не найден")
     public ResponseEntity<?> getMovieById(@PathVariable("id") Long id) {
         MovieResponse movieResponse = kinopoiskDevAPIClientImpl.getMovieById(id);
         log.info("Movie response: {}", movieResponse);
