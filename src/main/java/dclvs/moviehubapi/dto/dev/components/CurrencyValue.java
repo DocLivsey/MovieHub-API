@@ -7,10 +7,10 @@ import lombok.Data;
 @Schema(name = "Container for Movie Currency Value", description = "Валютная стоимость фильма")
 public class CurrencyValue {
 
-    @Schema(name = "Сумма", example = "207283", nullable = true)
+    @Schema(description = "Сумма", example = "207283", nullable = true)
     private Long value;
 
-    @Schema(name = "Валюта", example = "€", nullable = true)
+    @Schema(description = "Валюта", example = "€", nullable = true)
     private String currency;
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class MovieResponse {
 
-    @Schema(name = "Id фильма с кинопоиска", example = "666", nullable = true)
+    @Schema(description = "Id фильма с кинопоиска", example = "666", nullable = true)
     private Long id;
 
     @Schema(nullable = true)
@@ -25,44 +25,41 @@ public class MovieResponse {
     private String enName;
 
     @Schema(
-            name = "Тип тайтла",
             example = "movie",
-            description = "Доступны: movie | tv-series | cartoon | anime | animated-series | tv-show",
+            description = "Тип тайтла. Доступны: movie | tv-series | cartoon | anime | animated-series | tv-show",
             nullable = true
     )
     private String type;
 
     @Schema(
-            name = "Год премьеры",
             example = "2023",
-            description = "При поиске по этому полю, можно использовать интервалы 1860-2030",
+            description = "Год премьеры. При поиске по этому полю, можно использовать интервалы 1860-2030",
             nullable = true
     )
     private Integer year;
 
-    @Schema(name = "Описание тайтла", nullable = true)
+    @Schema(description = "Описание тайтла", nullable = true)
     private String description;
 
-    @Schema(name = "Сокращенное описание", nullable = true)
+    @Schema(description = "Сокращенное описание", nullable = true)
     private String shortDescription;
 
     @Schema(
-            name = "Статус релиза тайтла",
             example = "completed",
-            description = "Доступные значения: filming | pre-production | completed | announced | post-production",
+            description = "Статус релиза тайтла. Доступные значения: filming | pre-production | completed | announced | post-production",
             nullable = true
     )
     private String status;
 
     private Rating rating;
 
-    @Schema(name = "Продолжительность фильма", example = "120", nullable = true)
+    @Schema(description = "Продолжительность фильма", example = "120", nullable = true)
     private Integer movieLength;
 
-    @Schema(name = "Возрастной рейтинг по MPAA", example = "pg13", nullable = true)
+    @Schema(description = "Возрастной рейтинг по MPAA", example = "pg13", nullable = true)
     private String ratingMpaa;
 
-    @Schema(name = "Возрастной рейтинг", example = "16", nullable = true)
+    @Schema(description = "Возрастной рейтинг", example = "16", nullable = true)
     private Integer ageRating;
 
     private Logo logo;

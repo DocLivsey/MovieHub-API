@@ -8,7 +8,7 @@ import lombok.Data;
 public class ExternalId {
 
     @Schema(
-            name = "ID из kinopoisk HD",
+            description = "ID из kinopoisk HD",
             example = "48e8d0acb0f62d8585101798eaeceec5",
             nullable = true
     )
