@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -40,6 +42,18 @@ public class MovieDevAPIController {
             return ResponseEntity.ok(movieResponse);
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    public ResponseEntity<?> getMovieByTitle(@RequestParam("title") String title,
+                                             @RequestParam(value = "page", required = false) Integer page,
+                                             @RequestParam(value = "limit", required = false) Integer limit) {
+        List<MovieResponse> movieResponseList = kinopoiskDevAPIClientImpl.searchMovieByTitle(title, page, limit);
+        log.info("Movie's list response: {}", movieResponseList.toString());
+        if (movieResponseList.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(movieResponseList);
         }
     }
 
