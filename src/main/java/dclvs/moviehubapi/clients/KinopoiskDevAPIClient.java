@@ -18,7 +18,7 @@ public interface KinopoiskDevAPIClient {
 
     @GetMapping(value = "${kinopoisk.dev.api.version}${kinopoisk.dev.api.path.movie}${kinopoisk.dev.api.path.search}")
     List<MovieResponse> searchMovieByTitle(@RequestParam("query") String title,
-                                    @RequestParam(value = "page", required = false) Integer page,
-                                    @RequestParam(value = "limit", required = false) Integer limit);
+                                           @RequestParam(value = "page", required = false) Integer page,
+                                           @RequestParam(value = "limit", required = false) Integer limit);
 
 }
