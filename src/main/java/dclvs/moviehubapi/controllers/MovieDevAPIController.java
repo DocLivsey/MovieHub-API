@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/movies")
+@RequestMapping("${application.api.path.movies}")
 @Tag(
         name = "Controller for work with movies via Dev API",
         description = "API для обращения к Dev KinopoiskAPI"
