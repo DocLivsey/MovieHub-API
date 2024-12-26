@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.*;
 )
 public class MovieUnofficialAPIController {
 
+    @Value("${kinopoisk.unofficial.api.token}")
+    private String API_TOKEN;
+
     private final KinopoiskUnofficialAPIClient kinopoiskUnofficialAPIClientImpl;
 
     @GetMapping("/{id}")
@@ -29,7 +33,7 @@ public class MovieUnofficialAPIController {
     @ApiResponse(responseCode = "404", description = "Фильм не найден")
     @ApiResponse(responseCode = "429", description = "Слишком много запросов. Общий лимит - 20 запросов в секунду")
     public ResponseEntity<FilmResponse> getMovieById(@PathVariable Integer id) {
-        FilmResponse filmResponse = kinopoiskUnofficialAPIClientImpl.getMovieById(id);
+        FilmResponse filmResponse = kinopoiskUnofficialAPIClientImpl.getMovieById(id, API_TOKEN);
         log.info("Movie response: {}", filmResponse);
         return ResponseEntity.ok(filmResponse);
     }
