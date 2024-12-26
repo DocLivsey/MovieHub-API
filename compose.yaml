@@ -1,6 +1,9 @@
 version: '3.9'
 x-spring-api-variables: &api-variables
   HOST: http://localhost:8080
+  VERSION: v1.0
+  PATH_BASE: /api
+  PATH_MOVIES: /movies
 services:
   api:
     build: .
