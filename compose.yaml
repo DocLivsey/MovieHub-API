@@ -1,19 +1,14 @@
 version: '3.9'
+x-spring-api-variables: &api-variables
+  HOST: http://localhost:8080
+  VERSION: v1.0
+  PATH_BASE: /api
+  PATH_MOVIES: /movies
 services:
-  app:
+  api:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
-
-  # db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: mydb
-  #     POSTGRES_USER: user
-  #     POSTGRES_PASSWORD: pass
-  #   ports:
-  #     - "5432:5432"
+    environment: *api-variables
