@@ -153,19 +153,19 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>dev-name</id>
             <properties>
                 <application.name>${application.name}</application.name>
             </properties>
         </profile>
         <profile>
-            <id>dev</id>
+            <id>dev-version</id>
             <properties>
                 <application.version>${application.version}</application.version>
             </properties>
         </profile>
         <profile>
-            <id>dev</id>
+            <id>dev-desc</id>
             <properties>
                 <application.description>${application.description}</application.description>
             </properties>
