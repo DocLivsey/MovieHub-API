@@ -2,6 +2,7 @@ package dclvs.moviehubapi.controllers;
 
 import dclvs.moviehubapi.clients.KinopoiskDevAPIClient;
 import dclvs.moviehubapi.dto.dev.MovieResponse;
+import dclvs.moviehubapi.dto.dev.SearchMovieResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -49,8 +50,10 @@ public class MovieDevAPIController {
     public ResponseEntity<?> getMovieByTitle(@RequestParam("title") String title,
                                              @RequestParam(value = "page", required = false) Integer page,
                                              @RequestParam(value = "limit", required = false) Integer limit) {
-        List<MovieResponse> movieResponseList = kinopoiskDevAPIClientImpl
+        SearchMovieResponse searchMovieResponse = kinopoiskDevAPIClientImpl
                 .searchMovieByTitle(title, page, limit, API_TOKEN);
+        log.info("Search movie response: {}", searchMovieResponse);
+        List<MovieResponse> movieResponseList = searchMovieResponse.getDocs();
         log.info("Movie's list response: {}", movieResponseList.toString());
         if (movieResponseList.isEmpty()) {
             return ResponseEntity.notFound().build();
