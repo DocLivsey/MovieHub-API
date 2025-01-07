@@ -45,10 +45,12 @@ public class MovieDevAPIController {
         }
     }
 
+    @GetMapping
     public ResponseEntity<?> getMovieByTitle(@RequestParam("title") String title,
                                              @RequestParam(value = "page", required = false) Integer page,
                                              @RequestParam(value = "limit", required = false) Integer limit) {
-        List<MovieResponse> movieResponseList = kinopoiskDevAPIClientImpl.searchMovieByTitle(title, page, limit);
+        List<MovieResponse> movieResponseList = kinopoiskDevAPIClientImpl
+                .searchMovieByTitle(title, page, limit, API_TOKEN);
         log.info("Movie's list response: {}", movieResponseList.toString());
         if (movieResponseList.isEmpty()) {
             return ResponseEntity.notFound().build();
