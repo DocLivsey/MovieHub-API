@@ -1,6 +1,7 @@
 package dclvs.moviehubapi.clients;
 
 import dclvs.moviehubapi.dto.dev.MovieResponse;
+import dclvs.moviehubapi.dto.dev.SearchMovieResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ public interface KinopoiskDevAPIClient {
                                 @RequestHeader("X-API-KEY") String token);
 
     @GetMapping(value = "${kinopoisk.dev.api.version}${kinopoisk.dev.api.path.movie}${kinopoisk.dev.api.path.search}")
-    List<MovieResponse> searchMovieByTitle(@RequestParam("query") String title,
+    SearchMovieResponse searchMovieByTitle(@RequestParam("query") String title,
                                            @RequestParam(value = "page", required = false) Integer page,
                                            @RequestParam(value = "limit", required = false) Integer limit,
                                            @RequestHeader("X-API-KEY") String token);
