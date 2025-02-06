@@ -46,20 +46,33 @@ public class MovieResponse {
 
     @Schema(
             example = "completed",
-            description = "Статус релиза тайтла. Доступные значения: filming | pre-production | completed | announced | post-production",
+            description = "Статус релиза тайтла. Доступные значения: " +
+                    "filming | pre-production | completed | announced | post-production",
             nullable = true
     )
     private String status;
 
     private Rating rating;
 
-    @Schema(description = "Продолжительность фильма", example = "120", nullable = true)
+    @Schema(
+            description = "Продолжительность фильма",
+            example = "120",
+            nullable = true
+    )
     private Integer movieLength;
 
-    @Schema(description = "Возрастной рейтинг по MPAA", example = "pg13", nullable = true)
+    @Schema(
+            description = "Возрастной рейтинг по MPAA",
+            example = "pg13",
+            nullable = true
+    )
     private String ratingMpaa;
 
-    @Schema(description = "Возрастной рейтинг", example = "16", nullable = true)
+    @Schema(
+            description = "Возрастной рейтинг",
+            example = "16",
+            nullable = true
+    )
     private Integer ageRating;
 
     private Logo logo;
