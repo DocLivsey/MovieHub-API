@@ -9,7 +9,10 @@ import java.util.List;
 @Data
 public class MovieResponse {
 
-    @Schema(description = "Id фильма с кинопоиска", example = "666", nullable = true)
+    @Schema(
+            description = "Id фильма с кинопоиска",
+            example = "666",
+            nullable = true)
     private Long id;
 
     @Schema(nullable = true)
